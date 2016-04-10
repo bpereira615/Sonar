@@ -1,0 +1,18 @@
+Benmin Hoertnagl-Pereira
+bhoertn1
+631-488-7197 
+bhoertn1@jhu.edu
+
+520.214.01 EE214 Signals and Systems
+Project 2 - Sonar Detection and Digital Reception/Transmission
+
+Files:
+Scripts-
+	sonar_driver - main driver to run various functions
+	sonar_detection - determines distance of object given a received 
+		ping response via LTI system convolution
+
+.mat-
+	ActiveSonar.mat - containes sonar echo and ping signals
+	ReceivedSignal.mat - contains the recieved signal after ping
+	

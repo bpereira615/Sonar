@@ -23,7 +23,7 @@ t = linspace(0, length(y) / Fs , length(y));
 %plot convolved, time domain
 figure;
 plot(t, y, '-b')
-title('sonar_detection: Convolved (RecievedSignal * h)') 
+title('Sonar Detection: Convolved Signal(RecievedSignal * h)') 
 xlabel('Time (sec)')
 ylabel('Amp')
 
@@ -54,16 +54,46 @@ distance = tTotal * speedSound;
 
 
 
-freq = fft(SonarPing);
-yfreq = fft(y);
+filter = fft(h);
+filter = fftshift(filter);
+filter = filter / length(filter);
+f = linspace(-Fs/2, Fs/2, length(filter));
 
-figure;
-tfreq = 1:30;
-plot(tfreq, freq);
 
+convolved = fft(y);
+convolved = fftshift(convolved);
+convolved = convolved / length(convolved);
+c = linspace(-Fs/2, Fs/2, length(convolved));
+
+
+%plot impulse response in frequency domain
 figure;
-yt = 1:length(yfreq);
-plot(yt, yfreq);
+subplot(2,1,1)
+plot(f,real(filter))
+title('Matched Filter Response Spectrum - Real')
+xlabel('Frequency (1/sec)')
+ylabel('Amp')
+
+subplot(2,1,2)
+plot(f,imag(filter))
+title('Matched Filter Response Spectrum - Imaginary')
+xlabel('Frequency (1/sec)')
+ylabel('Amp')
+
+
+%plot convolved signal in frequency domain
+figure;
+subplot(2,1,1)
+plot(c,real(convolved))
+title('Convolved Signal Response Spectrum - Real')
+xlabel('Frequency (1/sec)')
+ylabel('Amp')
+
+subplot(2,1,2)
+plot(c,imag(convolved))
+title('Convolved Signal Response Spectrum - Imaginary')
+xlabel('Frequency (1/sec)')
+ylabel('Amp')
 
 end
 

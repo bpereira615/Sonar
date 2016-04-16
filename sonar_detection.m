@@ -1,4 +1,4 @@
-function [ distance ] = sonar_detection( filename1, filename2 )
+function [ distance ] = sonar_detection( activeSonar )
 %sonar_detection - determines distance of object based on ping response
 %   The function simulates an LTI matched filter system with impulse 
 %   response related to ping. It convolves a received signal with this
@@ -7,8 +7,8 @@ function [ distance ] = sonar_detection( filename1, filename2 )
 
 
 %load .mat file
-load(filename1);
-load(filename2);
+load(activeSonar);
+%load(filename2);
 
 %sample frequency
 Fs = 100;
@@ -17,13 +17,13 @@ Fs = 100;
 h = [zeros(size(SonarPing)) , fliplr(SonarPing)];
 
 %convolution
-y = conv(ReceivedSignal, h);
+y = conv(SonarEcho, h);
 t = linspace(0, length(y) / Fs , length(y));
 
 %plot convolved, time domain
 figure;
 plot(t, y, '-b')
-title('Sonar Detection: Convolved Signal(RecievedSignal * h)') 
+title('Sonar Detection: Convolved Signal(SonarEcho * h)') 
 xlabel('Time (sec)')
 ylabel('Amp')
 
@@ -70,13 +70,13 @@ c = linspace(-Fs/2, Fs/2, length(convolved));
 figure;
 subplot(2,1,1)
 plot(f,real(filter))
-title('Matched Filter Response Spectrum - Real')
+title('Matched Filter, Response Spectrum - Real')
 xlabel('Frequency (1/sec)')
 ylabel('Amp')
 
 subplot(2,1,2)
 plot(f,imag(filter))
-title('Matched Filter Response Spectrum - Imaginary')
+title('Matched Filter, Response Spectrum - Imaginary')
 xlabel('Frequency (1/sec)')
 ylabel('Amp')
 
@@ -85,13 +85,13 @@ ylabel('Amp')
 figure;
 subplot(2,1,1)
 plot(c,real(convolved))
-title('Convolved Signal Response Spectrum - Real')
+title('Convolved Signal, Response Spectrum - Real')
 xlabel('Frequency (1/sec)')
 ylabel('Amp')
 
 subplot(2,1,2)
 plot(c,imag(convolved))
-title('Convolved Signal Response Spectrum - Imaginary')
+title('Convolved Signal, Response Spectrum - Imaginary')
 xlabel('Frequency (1/sec)')
 ylabel('Amp')
 

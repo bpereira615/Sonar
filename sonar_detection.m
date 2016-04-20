@@ -14,7 +14,7 @@ load(activeSonar);
 Fs = 100;
 
 %impulse response - flip and shift signal
-h = [zeros(size(SonarPing)) , fliplr(SonarPing)];
+h = fliplr(SonarPing);
 
 %convolution
 y = conv(SonarEcho, h);

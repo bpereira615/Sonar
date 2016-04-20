@@ -8,9 +8,8 @@ distance = sonar_detection('ActiveSonar.mat');
 
 load('ReceivedSignal.mat');
 
-%h, matchted filter for logical 1 (negative for logical 0)
-h = 0:1/Fs:0.5;
-%flip and shift ramp function to get response
-h = [zeros(size(h)), fliplr(h)];
+%h, matchted filter for logical 1
+h = fliplr(0:1/Fs:0.5);
+
 
 msg=receiver(ReceivedSignal, h);

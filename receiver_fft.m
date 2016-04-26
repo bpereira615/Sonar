@@ -23,12 +23,6 @@ while ischar(line)
    line = fgetl(fileID);
 end
 
-
-
-
-
-
-
 %find padding for convolution
 convLength = length(conv(x,h));
 

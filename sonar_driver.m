@@ -31,5 +31,5 @@ isequal(msg, msg_fft);
 
 %% Part 3 - Digital Message Transmission
 
-%x = transmitter();
-%personal_msg = receiver(x, h);
+x = transmitter();
+personal_msg = receiver(x, h);

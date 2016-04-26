@@ -1,3 +1,10 @@
+%   Benjamin Hoertnagl-Pereira
+%   bhoertn1@jhu.edu
+%   
+%   Signals and Systems
+%   Project 2
+%       Part 3
+
 function [ x ] = transmitter(  )
 %transmitter Converts the input message into a digital signal with noise
 %   Detailed explanation goes here
@@ -6,13 +13,17 @@ Fs = 100;
 
 % message, "i love signals"
 msg = [0 1 1 0 1 0 0 1 0 0 1 0 0 0 0 0 0 1 1 0 1 1 0 0 0 1 1 0 1 1 1 1 0 1 1 1 0 1 1 0 0 1 1 0 0 1 0 1 0 0 1 0 0 0 0 0 0 1 1 1 0 0 1 1 0 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 1 1 0 1 1 1 0 0 1 1 0 0 0 0 1 0 1 1 0 1 1 0 0 0 1 1 1 0 0 1 1]; 
-len = length(msg) * Fs / 2;
+logic = 0:1/Fs:0.5;
+len = length(msg) * (length(logic) + 1);
+
+
 
 i = 1;
 pos = 1;
 x = zeros(1, len);
-logic = 0:1/Fs:0.5;
-while i <= length(msg) 
+
+
+while i < length(msg) 
     if (msg(i) == 0)
         logic = -1 .* logic;
     end

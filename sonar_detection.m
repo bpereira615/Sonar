@@ -1,3 +1,10 @@
+%   Benjamin Hoertnagl-Pereira
+%   bhoertn1@jhu.edu
+%   
+%   Signals and Systems
+%   Project 2
+%       Part 1
+
 function [ distance ] = sonar_detection( activeSonar )
 %sonar_detection - determines distance of object based on ping response
 %   The function simulates an LTI matched filter system with impulse 

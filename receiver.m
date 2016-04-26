@@ -1,4 +1,4 @@
-function [ digSig ] = receiver( x, h )
+function [ msg ] = receiver( x, h )
 %receiver matched filter technique, decoding message
 %   Detailed explanation goes here
 
@@ -19,34 +19,31 @@ end
 
 y = conv(x, h);
 
-t = 50;
+%look at the index of the end of h sampling
+interval = length(h) - 1;
+t = interval;
 i = 1;
-digSig = zeros(1, length(y)/50 - 1);
+digSig = zeros(1, length(y)/(length(h) - 1));
 
-while t < length(x)
-    if x(t) > 0
+while t <= length(y)
+    if y(t) > 0
         digSig(i) = 1;
     else
         digSig(i) = 0;
     end
     
-    t = t + 50;
+    t = t + interval;
     i = i + 1;
 end
 
-%may need to check the very last bit outside of this
-    if x(end) > 0
-        digSig(end) = 1;
-    else
-        digSig(end) = 0;
-    end
-
-i = 1;
-while i < length(digSig)
-    bits = digSig(i:i+7)
-    i = i + 7;
-end
+% i = 1;
+% while i < length(digSig)
+%     bits = digSig(i:i+7)
+%     i = i + 7;
+% end
     
+
+msg = zeros(1,1);
     
 
 end

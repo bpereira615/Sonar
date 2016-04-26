@@ -35,27 +35,26 @@ y_fft = x_fft .* h_fft;
 %convert back to time domain
 y = ifft(y_fft);
 
-t = 50;
-i = 1;
-msg = zeros(1, length(y)/50 - 1);
 
-while t < length(x)
-    if x(t) > 0
-        msg(i) = 1;
+%look at the index of the end of h sampling
+interval = length(h) - 1;
+t = interval;
+i = 1;
+digSig = zeros(1, length(y)/(length(h) - 1));
+
+while t <= length(y)
+    if y(t) > 0
+        digSig(i) = 1;
     else
-        msg(i) = 0;
+        digSig(i) = 0;
     end
     
-    t = t + 50;
+    t = t + interval;
     i = i + 1;
 end
 
-%may need to check the very last bit outside of this
-    if x(end) > 0
-        msg(end) = 1;
-    else
-        msg(end) = 0;
-    end
+
+msg = zeros(1,1);
 
 end
 

@@ -22,3 +22,6 @@ h = fliplr(0:1/Fs:0.5);
 
 msg=receiver(ReceivedSignal, h);
 mst_fft=receiver_fft(ReceivedSignal, h);
+
+%x = transmitter();
+%personal_msg = receiver(x, h);

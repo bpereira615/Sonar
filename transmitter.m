@@ -1,4 +1,4 @@
-function [ x ] = transmitter( msg )
+function [ x ] = transmitter(  )
 %transmitter Converts the input message into a digital signal with noise
 %   Detailed explanation goes here
 

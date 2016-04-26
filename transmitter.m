@@ -72,25 +72,25 @@ figure;
 subplot(2,2,1)
 plot(fx,real(x_fft))
 title('Transmission: Pure Signal, Freq Domain - Real')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 
 subplot(2,2,2)
 plot(fx,imag(x_fft))
 title('Transmission: Pure Signal, Freq Domain - Imaginary')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 
 subplot(2,2,3)
 plot(fy,real(y_fft))
 title('Transmission: Noisy Signal, Freq Domain - Real')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 
 subplot(2,2,4)
 plot(fy,imag(y_fft))
 title('Transmission: Noisy Signal, Freq Domain - Imaginary')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 end
 

@@ -78,13 +78,13 @@ figure;
 subplot(2,1,1)
 plot(f,real(filter))
 title('Matched Filter, Response Spectrum - Real')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 
 subplot(2,1,2)
 plot(f,imag(filter))
 title('Matched Filter, Response Spectrum - Imaginary')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 
 
@@ -93,13 +93,13 @@ figure;
 subplot(2,1,1)
 plot(c,real(convolved))
 title('Convolved Signal, Response Spectrum - Real')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 
 subplot(2,1,2)
 plot(c,imag(convolved))
 title('Convolved Signal, Response Spectrum - Imaginary')
-xlabel('Frequency (1/sec)')
+xlabel('Frequency (Hz)')
 ylabel('Amp')
 
 end

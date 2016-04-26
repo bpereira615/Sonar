@@ -20,10 +20,7 @@ line = fgetl(fileID);
 i = 1;
 while ischar(line)
    data = strsplit(line, ': ');
-   asciiMap(data{2}) = data{1};
-%    if i == 1
-%     asciiMap(data{2}) = '_';
-%    end
+   asciiMap(data{2}) = data(1);
    line = fgetl(fileID);
    i = 0;
 end

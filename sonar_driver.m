@@ -18,7 +18,7 @@ load('ReceivedSignal.mat');
 %h, matchted filter for logical 1
 h = fliplr(0:1/Fs:0.5);
 
-
+%% Part 3 - Digital Message Transmission
 msg=receiver(ReceivedSignal, h);
 msg_fft=receiver_fft(ReceivedSignal, h);
 

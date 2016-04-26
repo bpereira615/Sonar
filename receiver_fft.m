@@ -19,7 +19,7 @@ line = fgetl(fileID);
 
 while ischar(line)
    data = strsplit(line, ': ');
-   asciiMap(data{2}) = data{1};
+   asciiMap(data{2}) = data(1);
    line = fgetl(fileID);
 end
 

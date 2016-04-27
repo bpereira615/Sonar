@@ -72,6 +72,11 @@ convolved = fftshift(convolved);
 convolved = convolved / length(convolved);
 c = linspace(-Fs/2, Fs/2, length(convolved));
 
+echo = fft(SonarEcho);
+echo = fftshift(echo);
+echo = echo / length(echo);
+e = linspace(-Fs/2, Fs/2, length(echo));
+
 
 %plot impulse response in frequency domain
 figure;
@@ -99,6 +104,20 @@ ylabel('Amp')
 subplot(2,1,2)
 plot(c,imag(convolved))
 title('Convolved Signal, Response Spectrum - Imaginary')
+xlabel('Frequency (Hz)')
+ylabel('Amp')
+
+%plot sonar echo in frequency domain
+figure;
+subplot(2,1,1)
+plot(e,real(echo))
+title('Sonar Echo, Response Spectrum - Real')
+xlabel('Frequency (Hz)')
+ylabel('Amp')
+
+subplot(2,1,2)
+plot(e,imag(echo))
+title('Sonar Echo, Response Spectrum - Imaginary')
 xlabel('Frequency (Hz)')
 ylabel('Amp')
 

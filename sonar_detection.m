@@ -15,7 +15,6 @@ function [ distance ] = sonar_detection( activeSonar )
 
 %load .mat file
 load(activeSonar);
-%load(filename2);
 
 %sample frequency
 Fs = 100;
@@ -27,12 +26,16 @@ h = fliplr(SonarPing);
 y = conv(SonarEcho, h);
 t = linspace(0, length(y) / Fs , length(y));
 
+
+%plotting
+%{
 %plot convolved, time domain
 figure;
 plot(t, y, '-b')
 title('Sonar Detection: Convolved Signal(SonarEcho * h)') 
 xlabel('Time (sec)')
 ylabel('Amp')
+%}
 
 %find maximum value
 index = 1;
@@ -59,8 +62,8 @@ distance = tTotal * speedSound;
 
 
 
-
-
+%plot generation
+%{
 filter = fft(h);
 filter = fftshift(filter);
 filter = filter / length(filter);
@@ -120,6 +123,7 @@ plot(e,imag(echo))
 title('Sonar Echo, Response Spectrum - Imaginary')
 xlabel('Frequency (Hz)')
 ylabel('Amp')
+%}
 
 end
 

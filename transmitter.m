@@ -5,9 +5,9 @@
 %   Project 2
 %       Part 3
 
-function [ x ] = transmitter(  )
+function [ y ] = transmitter(  )
 %transmitter Converts the input message into a digital signal with noise
-%   Detailed explanation goes here
+%   Details in report.
 
 Fs = 100;
 
@@ -36,9 +36,11 @@ end
 
 % add random noise to signal
 random = rand(1, length(x));
-random = random / (abs(max(random)));
+random = random / (2 * abs(max(random)));
 y = x + random;
 
+
+%{
 % plot transmitted pure vs noisy, time domain
 t = linspace(0, length(x) / Fs , length(x));
 figure;
@@ -90,6 +92,6 @@ plot(fy,imag(y_fft))
 title('Transmission: Noisy Signal, Freq Domain - Imaginary')
 xlabel('Frequency (Hz)')
 ylabel('Amp')
+%}
 
-x = y
 end

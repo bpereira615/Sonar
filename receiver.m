@@ -7,7 +7,7 @@
 
 function [ msg ] = receiver( x, h )
 %receiver matched filter technique, decoding message
-%   Detailed explanation goes here
+%   Details in report.
 
 
 
